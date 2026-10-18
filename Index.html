@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechStore</title>
+
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            TechStore
+        </div>
+
+          <button id="menu-button"></button>
+
+    <nav id="menu">
+        <a href="#home">Hem</a>
+        <a href="#produucts">Produkter</a>
+        <a href="#add-product">Lägg till</a>
+        <a href="#contact">Kontakt</a>
+    </nav>
+    
+    <div class="cart">
+        <span id="cart-count">0</span>
+    </div>
+
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div>
+                <h1>Välkomen till TeckStore</h1>
+
+                <p>
+                    Hitta electronic för vardagar
+                </p>
+
+                <a href="#products" class="hero-button">
+                    Se våra producter
+                </a>
+            </div>
+        </section>
+
+
+        <section class="products-section" id="products">
+            <h2>Våra erbjudande</h2>
+
+            <p>
+                Välj en kategori för att filtrera producterna
+            </p>
+
+            <div class="filter">
+
+                <button data-category="Alla" class="active">
+                   Alla 
+                </button>
+
+                <button data-category="Mobil">
+                    Mobil 
+                </button>
+
+                <button data-category="Ljud">
+                    Ljud 
+                </button>
+
+                <button data-category="Dator">
+                    Dator 
+                </button>
+
+                <button data-category="Tillbehör">
+                    Tillbehör
+                </button>
+
+                <button data-category="TV">
+                    TV
+                </button>
+
+                <button data-category="Spel">
+                    Spel 
+                </button>
+
+                <button data-category="lampa">
+                    lampa
+                </button>
+
+
+            </div>
+
+            <div id="product-lista"></div>
+
+        </section>
+
+        <p id="message"></p>
+
+        <section class="cart-section">
+            <h3>Kundvagn</h3>
+            <ul id="cart-items"></ul>
+            <p id="cart-total">Totalt: 0 kr</p>
+        </section>
+
+        <section class="form" id="add-product">
+            <h2>Lägg till Produkter</h2>
+
+            <form id="product-form">
+                <label for="name">Produktnamn</label>
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Produktnamn"
+                    required
+                >
+
+                <label for="category">Kategori</label>
+                <select id="category" name="category" required>
+                    <option value="Mobil">Mobil</option>
+                    <option value="Dator">Dator</option>
+                    <option value="Ljud">Ljud</option>
+                    <option value="Tillbehör">Tillbehör</option>
+                    <option value="TV">TV</option>
+                    <option value="Spel">Spel</option>
+                    <option value="lampa">lampa</option>
+                </select>
+
+                <label for="price">Pris</label>
+                <input
+                    type="number"
+                    id="price"
+                    name="price"
+                    min="1"
+                    placeholder="Pris"
+                    required
+                >
+
+                <button type="submit">Lägg till produkt</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="site-footer" id="contact">
+        <div class="footer-content">
+            <div>
+                <h2>TechStore</h2>
+                <p>Elektronik för vardagen.</p>
+            </div>
+
+            <div>
+                <h3>Snabblänkar</h3>
+                <a href="#home">Hem</a>
+                <a href="#products">Produkter</a>
+                <a href="#add-product">Lägg till produkt</a>
+            </div>
+
+            <div>
+                <h3>Kontakt</h3>
+                <p>E-post: info@techstore.se</p>
+                <p>Telefon: 08-123 45 67</p>
+            </div>
+        </div>
+
+        <p class="footer-bottom">&copy; 2026 TechStore. Alla rättigheter förbehållna.</p>
+    </footer>
+
+      
+</body>
+</html>
