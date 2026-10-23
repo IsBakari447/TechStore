@@ -1,3 +1,4 @@
+// Produktkatalogen lagras i minnet och visas på produktsidan.
 const products = [
     { id: 1, 
     name: 'iPhone 15', 
@@ -46,6 +47,7 @@ const products = [
 const cart = [];
 let selectedCategory = 'Alla';
 
+// Hämta HTML-elementen som JavaScript uppdaterar.
 const productList = document.querySelector('#product-lista');
 const cartCount = document.querySelector('#cart-count');
 const cartItems = document.querySelector('#cart-items');
@@ -83,6 +85,7 @@ function updateCart() {
 function renderCart() {
     if (!cartItems) return;
 
+    // Visa ett meddelande när kundvagnen är tom.
     if (cart.length === 0) {
         cartItems.innerHTML = '<li>Din kundvagn är tom.</li>';
         updateCart();
@@ -123,6 +126,7 @@ function renderProducts(category = 'Alla') {
 
     selectedCategory = category;
 
+    // Visa alla produkter eller bara produkterna i vald kategori.
     const filteredProducts = category === 'Alla'
         ? products
         : products.filter((product) => product.category === category);
@@ -162,6 +166,7 @@ function renderProducts(category = 'Alla') {
 function setupFilterButtons() {
     if (!filterButtons.length) return;
 
+    // Koppla varje kategoriknapp till produktfiltreringen.
     filterButtons.forEach((button) => {
         button.addEventListener('click', () => {
             const category = button.dataset.category;
@@ -186,10 +191,12 @@ function setupMobileMenu() {
 function setupProductForm() {
     if (!productForm) return;
 
+    // Hantera formuläret utan att ladda om sidan.
     productForm.addEventListener('submit', (event) => {
         event.preventDefault();
 
         const formData = new FormData(productForm);
+        const newName = formData.get('name')?.toString().trim() ?? '';
         const newCategory = formData.get('category')?.toString().trim() ?? '';
         const newPrice = Number(formData.get('price'));
 
@@ -206,6 +213,7 @@ function setupProductForm() {
             description: 'Ny produkt tillagd av användaren.'
         };
 
+        // Lägg den nya produkten först i katalogen och uppdatera sidan.
         products.unshift(newProduct);
         productForm.reset();
         renderProducts(selectedCategory);
@@ -214,6 +222,7 @@ function setupProductForm() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Starta visningen och aktivera sidans funktioner när HTML har laddats.
     renderCart();
     renderProducts(selectedCategory);
     setupFilterButtons();
